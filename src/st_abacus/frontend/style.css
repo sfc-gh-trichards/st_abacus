@@ -1,0 +1,138 @@
+.abacus-frame {
+    background: white;
+    padding: 20px;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    position: relative;
+    border: 1px solid rgba(49, 51, 63, 0.2);
+    width: 400px;
+    max-width: 95%;
+}
+
+.frame-top,
+.frame-bottom {
+    height: 12px;
+    background: #f0f2f6;
+    border-radius: 4px;
+    margin: -20px -20px 10px -20px;
+    border: 1px solid rgba(49, 51, 63, 0.1);
+}
+
+.frame-bottom {
+    margin: 10px -20px -20px -20px;
+}
+
+/* Style for the rows */
+#root>div {
+    background: #f8f9fa;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 15px !important;
+    position: relative;
+    border: 1px solid rgba(49, 51, 63, 0.1);
+}
+
+/* Add horizontal rod */
+#root>div::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 3px;
+    background: linear-gradient(to bottom, #e9ecef, #dee2e6, #e9ecef);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* Style for the beads */
+#root span {
+    font-size: 16px;
+    padding: 0 3px;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 2;
+    /* Make sure beads appear above the rod */
+}
+
+.bead {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin: 0 2px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+}
+
+/* Color variations for each row */
+.bead-color-0 {
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #A8D8FF 30%, #4D95DA 100%);
+}
+
+.bead-color-1 {
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #4D95DA 30%, #4D6AAD 100%);
+}
+
+.bead-color-2 {
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #FF6B6B 30%, #E84545 100%);
+}
+
+.bead-color-3 {
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #4D6AAD 30%, #2E4374 100%);
+}
+
+.inactive-bead.bead-color-0 {
+    opacity: 0.7;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #D1E9FF 30%, #A8D8FF 100%);
+}
+
+.inactive-bead.bead-color-1 {
+    opacity: 0.7;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #A8D8FF 30%, #4D95DA 100%);
+}
+
+.inactive-bead.bead-color-2 {
+    opacity: 0.7;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #FFB3B3 30%, #FF6B6B 100%);
+}
+
+.inactive-bead.bead-color-3 {
+    opacity: 0.7;
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #7B97D1 30%, #4D6AAD 100%);
+}
+
+/* Style for the divider */
+#root span:nth-child(2) {
+    color: #31333F;
+    font-weight: bold;
+    position: relative;
+    margin: 0 15px;
+    z-index: 2;
+    /* Make sure divider appears above the rod */
+}
+
+/* Create vertical rod effect */
+#root span:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    bottom: -15px;
+    left: 50%;
+    width: 3px;
+    background: linear-gradient(to right, #e9ecef, #dee2e6, #e9ecef);
+    transform: translateX(-50%);
+    border-radius: 2px;
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+/* Title styling */
+#root h3 {
+    color: #31333F;
+    text-align: center;
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 1rem;
+}
