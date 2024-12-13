@@ -87,10 +87,8 @@ function createAbacus(rows = 4, beadsPerRow = 10) {
       leftSpan.onclick = () => {
         console.log("Left span clicked for row", rowIndex)
         console.log("Current count:", counts[rowIndex])
-        if (counts[rowIndex] < beadsPerRow) {
-          counts[rowIndex] += 1
-          // Apply carry over logic
-          counts = carryOver(counts, rowIndex)
+        if (counts[rowIndex] > 0) {
+          counts[rowIndex] -= 1
           // Update all rows, including the title
           document.querySelectorAll("#root > div").forEach((row) => {
             // Call updateRow for all divs that have the function
@@ -104,9 +102,10 @@ function createAbacus(rows = 4, beadsPerRow = 10) {
       rightSpan.onclick = () => {
         console.log("Right span clicked for row", rowIndex)
         console.log("Current count:", counts[rowIndex])
-        console.log("beadsPerRow:", beadsPerRow)
-        if (counts[rowIndex] > 0) {
-          counts[rowIndex] -= 1
+        if (counts[rowIndex] < beadsPerRow) {
+          counts[rowIndex] += 1
+          // Apply carry over logic
+          counts = carryOver(counts, rowIndex)
           // Update all rows here too for consistency
           document.querySelectorAll("#root > div").forEach((row) => {
             row.updateRow && row.updateRow()

@@ -23,9 +23,11 @@ def st_abacus(
 
 
 def main():
-    st.write('enter: st.abacus()')
-    value = st_abacus()
-    st.write(value)
+    #number input is not good enough, takes forever
+    val = st_abacus(rows=4, beadsPerRow=10, key="abacus1")
+    st.write(val)
+
+
 
 
 
